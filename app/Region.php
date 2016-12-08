@@ -14,5 +14,20 @@ class Region extends Model
     public function comunas(){
     	return $this->hasMany('App\Comuna');
     }
+
+    public function clientes(){
+        return $this->hasMany('App\Cliente');
+
+    }
+    
+    public function obras(){
+        return $this->hasMany('App\Obra');
+
+    }
+
+    public function plantas(){
+        return $this->hasMany('App\Planta');
+
+    }
     
 }

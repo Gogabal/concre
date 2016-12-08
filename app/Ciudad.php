@@ -15,5 +15,20 @@ class Ciudad extends Model
     	return $this->belongsTo('App\Comuna');
 
     }
+
+    public function clientes(){
+        return $this->hasMany('App\Cliente');
+
+    }
+    
+    public function obras(){
+        return $this->hasMany('App\Obra');
+
+    }
+
+    public function plantas(){
+        return $this->hasMany('App\Planta');
+
+    }
     
 }

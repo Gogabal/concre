@@ -19,4 +19,19 @@ class Comuna extends Model
    		return $this->hasMany('App\Ciudad');
 
    }
+
+   public function clientes(){
+        return $this->hasMany('App\Cliente');
+
+    }
+    
+    public function obras(){
+        return $this->hasMany('App\Obra');
+
+    }
+
+    public function plantas(){
+        return $this->hasMany('App\Planta');
+
+    }
 }
