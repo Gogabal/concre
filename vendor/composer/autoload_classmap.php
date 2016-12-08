@@ -6,9 +6,15 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-
+    'AddCamionesTable' => $baseDir . '/database/migrations/2016_12_08_185651_add_camiones_table.php',
     'AddCiudadesTable' => $baseDir . '/database/migrations/2016_12_08_190747_add_ciudades_table.php',
+    'AddClientesTable' => $baseDir . '/database/migrations/2016_12_08_194802_add_clientes_table.php',
     'AddComunasTable' => $baseDir . '/database/migrations/2016_12_08_190117_add_comunas_table.php',
+    'AddConductoresTable' => $baseDir . '/database/migrations/2016_12_08_183743_add_conductores_table.php',
+    'AddListaprecioTable' => $baseDir . '/database/migrations/2016_12_08_200957_add_listaprecio_table.php',
+    'AddObrasTable' => $baseDir . '/database/migrations/2016_12_08_195647_add_obras_table.php',
+    'AddPlantasTable' => $baseDir . '/database/migrations/2016_12_08_194027_add_plantas_table.php',
+    'AddProductosTable' => $baseDir . '/database/migrations/2016_12_08_190139_add_productos_table.php',
     'AddRegionesTable' => $baseDir . '/database/migrations/2016_12_08_185835_add_regiones_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',

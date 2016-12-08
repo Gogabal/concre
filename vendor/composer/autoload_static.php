@@ -278,13 +278,16 @@ class ComposerStaticInit715a10c63006befe3d7d5b42ecbab039
     );
 
     public static $classMap = array (
-
+        'AddCamionesTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_08_185651_add_camiones_table.php',
         'AddCiudadesTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_08_190747_add_ciudades_table.php',
+        'AddClientesTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_08_194802_add_clientes_table.php',
         'AddComunasTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_08_190117_add_comunas_table.php',
+        'AddConductoresTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_08_183743_add_conductores_table.php',
+        'AddListaprecioTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_08_200957_add_listaprecio_table.php',
+        'AddObrasTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_08_195647_add_obras_table.php',
+        'AddPlantasTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_08_194027_add_plantas_table.php',
+        'AddProductosTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_08_190139_add_productos_table.php',
         'AddRegionesTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_08_185835_add_regiones_table.php',
-
-     
-
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
