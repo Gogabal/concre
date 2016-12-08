@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+
     'AddCiudadesTable' => $baseDir . '/database/migrations/2016_12_08_190747_add_ciudades_table.php',
     'AddComunasTable' => $baseDir . '/database/migrations/2016_12_08_190117_add_comunas_table.php',
     'AddRegionesTable' => $baseDir . '/database/migrations/2016_12_08_185835_add_regiones_table.php',
