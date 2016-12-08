@@ -3,10 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Comuna extends Model
 {
    protected $table='comunas';
+   protected $dates = ['deleted_at'];
    protected $fillable = ['id', 'nombre', 'region_id'];
 
    public function region(){
