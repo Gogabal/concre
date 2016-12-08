@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('backend/variables/regiones/index');
+Route::get('/', ['as'=>'index', function() {
+    return view('index');
+}]);
+
+Route::group(['prefix'=>'/backend'], function(){
+	
+	Route::get('/', ['as'=>'backend.index', function(){
+				return view('backend.index');
+	}]);
+
 });
