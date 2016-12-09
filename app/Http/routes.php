@@ -21,4 +21,11 @@ Route::group(['prefix'=>'/backend'], function(){
 				return view('backend.index');
 	}]);
 
+	// Rutas para el Cliente
+	Route::resource('clientes','ClientesController');
+		Route::get('clientes/{id}/destroy', [
+				'uses' => 'ClientesController@destroy',
+				'as' => 'backend.clientes.destroy'
+				]);
+
 });

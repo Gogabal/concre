@@ -39,4 +39,8 @@ class Cliente extends Model
         return $this->belongsTo('App\Region');
 
     }
+
+    public static function scopeSearchClienteNombre($query, $nombre){
+        return $query->where('nombre', 'LIKE', "%$nombre%");
+    }
 }

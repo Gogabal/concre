@@ -9,7 +9,7 @@
       <li><a href="#"><i class="fa fa-usd"></i><span>Ventas</span> <span class="fa fa-angle-left pull-right"></span></a></li>
 
       <!-- Clientes -->
-      <li><a href="#"><i class="fa fa-building"></i><span>Clientes</span> <span class="fa fa-angle-left pull-right"></span></a></li>
+      <li><a href="{{ route('backend.clientes.index') }}"><i class="fa fa-building"></i><span>Clientes</span> <span class="fa fa-angle-left pull-right"></span></a></li>
 
       <!-- Productos -->
       <li><a href="#"><i class="fa fa-puzzle-piece"></i><span>Productos</span> <span class="fa fa-angle-left pull-right"></span></a></li>
