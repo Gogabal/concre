@@ -69,6 +69,60 @@
 				</tbody>
 			</table>
 		</div>
+
+
+
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<table class="table table-condensed table-hover">
+				<thead>
+					<tr>
+						<th>RUT</th>						
+						<th>Nombre</th>
+						<th>email</th>
+						<th>Accion</th>
+					</tr>
+				</thead>
+				<tbody>
+				@foreach ($deletedClientes as $deletedCliente)
+					<tr>
+						
+							{{-- expr --}}
+						<td>{{$deletedCliente->rut}} - {{$deletedCliente->cod_rut}}</td>							
+						<td>{{$deletedCliente->nombre}}</td>
+						<td>{{$deletedCliente->email}}</td>
+						<td>
+						<div class="form-group">
+
+							<a data-toggle="modal" title="Editar" class="open-vista btn btn-info" href="#editar"
+								data-cliente="{{$deletedCliente}}"
+								@if ($deletedCliente->ciudad_id)
+									data-ciudad="{{$deletedCliente->ciudad->nombre}}"
+								@else
+									data-ciudad="Sin Especificar"
+								@endif
+								@if ($deletedCliente->comuna_id)
+									data-comuna="{{$deletedCliente->comuna->nombre}}"
+								@else
+									data-comuna="Sin Especificar"
+								@endif
+								@if ($deletedCliente->region_id)
+									data-region="{{$deletedCliente->region->nombre}}"
+								@else
+									data-region="Sin Especificar"
+								@endif
+								
+							>Info</a>
+
+							<a href="{{ route('backend.clientes.restore',$deletedCliente->id) }}" class="btn btn-info">Restaurar</a>
+
+							<a href="{{ route('backend.clientes.destroy',$deletedCliente->id) }}" class="btn btn-danger">Borrar</a>
+						</td>
+					</tr>
+				@endforeach
+				</tbody>
+			</table>
+		</div>
+
 		
 		<div class="modal fade" id="editar">
 		  	<div class="modal-dialog">

@@ -28,4 +28,9 @@ Route::group(['prefix'=>'/backend'], function(){
 				'as' => 'backend.clientes.destroy'
 				]);
 
+		Route::get('clientes/{id}/restore', [
+				'uses' => 'ClientesController@restore',
+				'as' => 'backend.clientes.restore'
+				]);
+
 });
