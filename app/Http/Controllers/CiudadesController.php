@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Comuna;
+use App\Ciudad;
 use Laracasts\Flash\Flash;
-use Illuminate\Support\Facades\Redirect;
-use App\Region;
 
 
-class RegionesController extends Controller
+
+class CiudadesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,12 +20,16 @@ class RegionesController extends Controller
      */
     public function index(Request $request)
     {
+        $ciudades = Ciudad::SearchCiudad($request->nombre)->orderBy('id','ASC')->paginate(5);
+        $comunas = Comuna::orderBy('nombre','ASC')->lists('nombre','id');
 
-        $regiones = Region::SearchRegion($request->nombre)->orderBy('id','ASC')->paginate(5);
-        if(($regiones->count()) == 0) {
-            flash('La Region no se ha encontrado','warning');
+        if(($ciudades->count()) == 0){
+            flash('No se ha encontrado resultados','warning');
         }
-       return view('backend.variables.regiones.index')->with('regiones',$regiones);
+
+        return view('backend.variables.ciudades.index')
+        ->with('ciudades',$ciudades)
+        ->with('comunasList',$comunas);
     }
 
     /**
@@ -44,12 +48,12 @@ class RegionesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+   public function store(Request $request)
     {
-        $region = new Region($request->all());
-        $region->save();
-        Flash::success('La region '.$region->nombre." ha sido creada");
-        return redirect()->route('backend.regiones.index');
+        $ciudad = new Ciudad($request->all());
+        $ciudad->save();
+        Flash::success('La ciudad '. $ciudad->nombre . " ha sido creada");
+        return redirect()->route('backend.ciudades.index');
     }
 
     /**
@@ -81,12 +85,13 @@ class RegionesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CiudadRequest $request, $id)
     {
-        $region = Region::find($id);
-        dd($region->nombre);
-        $region->save();
-        return redirect()->route('backend.regiones.index');
+        $ciudad = Ciudad::find($id);
+        $ciudad->nombre = $request->nombre;
+        $ciudad->comuna_id = $request->comuna_id;
+        $ciudad->save();
+        return redirect()->route('backend.ciudades.index');
     }
 
     /**
@@ -97,11 +102,11 @@ class RegionesController extends Controller
      */
     public function destroy($id)
     {
-       $region = Region::find($id);
-       if(!is_null($region)){
-           $region->delete();
-       }
-       Flash::warning('La region fue eliminada satisfactoriamente');
-       return redirect()->route('backend.regiones.index');
+        $ciudad = Ciudad::find($id);
+        if(!is_null($ciudad)){
+            $ciudad->delete();
+        }
+        Flash::warning('La ciudad fue eliminada satifactoriamente');
+        return redirect()->route('backend.ciudades.index');
     }
 }

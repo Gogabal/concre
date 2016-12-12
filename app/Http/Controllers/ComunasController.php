@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Comuna;
 use Laracasts\Flash\Flash;
 use Illuminate\Support\Facades\Redirect;
 use App\Region;
 
 
-class RegionesController extends Controller
+class ComunasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,12 +20,13 @@ class RegionesController extends Controller
      */
     public function index(Request $request)
     {
-
-        $regiones = Region::SearchRegion($request->nombre)->orderBy('id','ASC')->paginate(5);
-        if(($regiones->count()) == 0) {
-            flash('La Region no se ha encontrado','warning');
+     
+      $comunas = comuna::Searchcomuna($request->nombre)->orderBy('id','ASC')->paginate(5);
+        if(($comunas->count()) == 0) {
+            flash('La comuna no se ha encontrado','warning');
         }
-       return view('backend.variables.regiones.index')->with('regiones',$regiones);
+        $regiones = Region::orderBy('nombre','ASC')->lists('nombre','id');
+       return view('backend.variables.comunas.index')->with('comunas',$comunas)->with('regionesList',$regiones)->with('comunas',$comunas);
     }
 
     /**
@@ -46,10 +47,10 @@ class RegionesController extends Controller
      */
     public function store(Request $request)
     {
-        $region = new Region($request->all());
-        $region->save();
-        Flash::success('La region '.$region->nombre." ha sido creada");
-        return redirect()->route('backend.regiones.index');
+        $comuna = new Comuna($request->all());
+        $comuna->save();
+        Flash::success('La comuna '.$comuna->nombre." ha sido creada");
+        return redirect()->route('backend.comunas.index');
     }
 
     /**
@@ -83,10 +84,11 @@ class RegionesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $region = Region::find($id);
-        dd($region->nombre);
-        $region->save();
-        return redirect()->route('backend.regiones.index');
+        $comuna = Comuna::find($id);
+        $comuna->nombre = $request->nombre;
+        $comuna->region_id = $request->region_id;
+        $comuna->save();
+        return redirect()->route('backend.comunas.index');
     }
 
     /**
@@ -97,11 +99,12 @@ class RegionesController extends Controller
      */
     public function destroy($id)
     {
-       $region = Region::find($id);
-       if(!is_null($region)){
-           $region->delete();
+       $comuna = Comuna::find($id);
+       if(!is_null($comuna)){
+           $comuna->delete();
        }
-       Flash::warning('La region fue eliminada satisfactoriamente');
-       return redirect()->route('backend.regiones.index');
+       Flash::warning('La comuna fue eliminada satisfactoriamente');
+       return redirect()->route('backend.comunas.index');
     }
+    
 }

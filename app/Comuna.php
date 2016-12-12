@@ -34,4 +34,7 @@ class Comuna extends Model
         return $this->hasMany('App\Planta');
 
     }
+    public function scopeSearchComuna($query, $nombre){
+        return $query->where('nombre', 'LIKE', "%$nombre%");
+    }
 }

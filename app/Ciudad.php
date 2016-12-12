@@ -30,5 +30,8 @@ class Ciudad extends Model
         return $this->hasMany('App\Planta');
 
     }
+    public function scopeSearchCiudad($query, $nombre){
+        return $query->where('nombre', 'LIKE', "%$nombre%");
+    }
     
 }

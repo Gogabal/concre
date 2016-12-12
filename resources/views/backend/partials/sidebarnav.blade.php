@@ -40,14 +40,11 @@
             <a href="#"><i class="fa fa-caret-right"></i><span>Ubicación</span> <span class="fa fa-angle-left pull-right"></span></a>
               <ul class="treeview-menu">
                 <li><a href="{{ route('backend.regiones.index') }}"><i class="fa fa-circle-o"></i><span>Regiones</span></a></li>              
-                <li><a href="#"><i class="fa fa-circle-o"></i><span>Comunas</span></a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i><span>Ciudades</span></a></li>
+                <li><a href="{{ route('backend.comunas.index') }}"><i class="fa fa-circle-o"></i><span>Comunas</span></a></li>
+                <li><a href="{{ route('backend.ciudades.index') }}"><i class="fa fa-circle-o"></i><span>Ciudades</span></a></li>
 
               </ul>
           </li>
-
-          <li><a href="#"><i class="fa fa-caret-right"></i><span>AFP</span></a></li>
-          <li><a href="#"><i class="fa fa-caret-right"></i><span>Isapres</span></a></li>
         </ul>
       </li>
 

@@ -29,5 +29,7 @@ class Region extends Model
         return $this->hasMany('App\Planta');
 
     }
-    
+    public function scopeSearchRegion($query, $nombre){
+        return $query->where('nombre', 'LIKE', "%$nombre%");
+    }
 }

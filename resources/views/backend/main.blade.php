@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
-	<title>Sermac Guardias</title>
+	<title>Concresur</title>
 	<link rel="stylesheet" href="{{ asset('/plugins/bootstrap/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('/plugins/adminLTE/css/AdminLTE.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css') }}">
