@@ -27,5 +27,10 @@ Route::group(['prefix'=>'/backend'], function(){
 				'uses' => 'ClientesController@destroy',
 				'as' => 'backend.clientes.destroy'
 				]);
+	Route::resource('regiones','RegionesController');
+		Route::get('regiones/{id}/destroy', [
+				'uses' => 'RegionesController@destroy',
+				'as' => 'backend.regiones.destroy'
+				]);
 
 });
